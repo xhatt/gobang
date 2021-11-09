@@ -53,7 +53,7 @@ func (b *Board) Draw() {
 	defer b.mutex.Unlock()
 	Clear()
 	ResetCursor()
-	fmt.Printf("方向键移动光标，空格键落子\n我使用的符号是：%s\n正在走子的玩家是: %s\n", pieceMap[board.chessColor], pieceMap[b.CurrentPlayer])
+	fmt.Printf("方向键移动光标，空格键落子, q|Q 退出程序\n我使用的符号是：%s\n正在走子的玩家是: %s\n", pieceMap[board.chessColor], pieceMap[b.CurrentPlayer])
 	for yIndex, xItem := range b.Checkerboard {
 		//fmt.Print(x)
 		for xIndex, yItem := range xItem {
@@ -113,7 +113,6 @@ func (b *Board) changeCurrentPlayer() {
 		}
 	}
 }
-
 
 // 对手落子，修改棋盘并渲染
 func (b *Board) modifyBoard(x, y int, color ChessColor) {
@@ -283,4 +282,3 @@ func (b *Board) HandleKeyboard() {
 		}
 	}
 }
-
